@@ -70,8 +70,9 @@ function scrapeEmailsFromPage() {
 
   // Parse emails from the HTML of the page
   let emails = document.body.innerHTML.match(emailRegEx)
-  console.log(emails)
+
   // Send emails to popup
+  emails = [...new Set(emails)]
   chrome.runtime.sendMessage({ emails })
 }
 
@@ -96,7 +97,6 @@ function scrapeAccountIdsFromPage() {
     accountArray = accountArray.filter((e) => e !== "monitor")
   }
   accountArray = [...new Set(accountArray)]
-  console.log(accountArray)
 
   // Send accountIds to popup
   chrome.runtime.sendMessage({ accountArray })
