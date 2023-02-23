@@ -10,3 +10,4 @@
 - copy to clipboard feature
 - add and update `README.md` with features
 - publish extension
+- add paginative search
